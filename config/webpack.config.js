@@ -152,7 +152,13 @@ module.exports = function (webpackEnv) {
         {
           loader: require.resolve(preProcessor),
           options: {
-            sourceMap: true,
+            lessOptions: {
+              javascriptEnabled: true,
+              modifyVars: {
+                'primary-color': 'red',
+              },
+            },
+            sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
           },
         }
       );
@@ -442,7 +448,7 @@ module.exports = function (webpackEnv) {
               exclude: /@babel(?:\/|\\{1,2})runtime/,
               loader: require.resolve('babel-loader'),
               options: {
-                babelrc: false,
+                babelrc: true, // 改成 true 采用.babelrc文件中的配置，false 则使用 package.json下babel字段中的配置
                 configFile: false,
                 compact: false,
                 presets: [
@@ -561,7 +567,8 @@ module.exports = function (webpackEnv) {
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
                   modules: {
-                    getLocalIdent: getCSSModuleLocalIdent,
+                    // getLocalIdent: getCSSModuleLocalIdent,
+                    localIdentName: '[local]_[hash:base64:5]' // 更改less模块化显示方案
                   },
                 },
                 'less-loader'

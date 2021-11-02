@@ -1,9 +1,9 @@
+import { Button } from 'antd';
 function App() {
   return (
-    <div className="App">
-      页面主入口
+    <div>
+      <Button type="primary">按钮</Button>
     </div>
   );
 }
-
 export default App;

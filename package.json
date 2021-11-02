@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
+    "antd": "^4.16.13",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.0",
     "babel-loader": "8.1.0",
@@ -144,13 +145,9 @@
     ],
     "resetMocks": true
   },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "devDependencies": {
-    "less": "^4.1.2",
-    "less-loader": "^10.2.0"
+    "babel-plugin-import": "^1.13.3",
+    "less": "3.11.1",
+    "less-loader": "6.1.0"
   }
 }
