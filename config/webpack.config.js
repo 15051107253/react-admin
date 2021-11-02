@@ -154,9 +154,7 @@ module.exports = function (webpackEnv) {
           options: {
             lessOptions: {
               javascriptEnabled: true,
-              modifyVars: {
-                'primary-color': 'red',
-              },
+              modifyVars: require('../theme'),
             },
             sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
           },
