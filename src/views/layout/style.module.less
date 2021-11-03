@@ -1,0 +1,31 @@
+.layout {
+  height: 100vh;
+}
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.menu-wrap {
+  background: #fff;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none; /* firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.menu-wrap::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+
+.content {
+  padding: 10px;
+  overflow: hidden;
+  &-wrap {
+    background-color: #fff;
+  }
+}
