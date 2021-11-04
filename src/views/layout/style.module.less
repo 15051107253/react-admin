@@ -1,17 +1,29 @@
 .layout {
   height: 100vh;
 }
-.logo {
+.header {
+  padding: 0;
+}
+.logo-wrap {
   float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+  width: 200px;
+  height: 63px;
+  .logo {
+    width: 120px;
+    height: 31px;
+    margin: 16px auto;
+    line-height: 31px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .menu-wrap {
   background: #fff;
   height: 100%;
+  box-shadow: 5px 0 5px -5px #ddd;
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: none; /* firefox */
@@ -23,7 +35,6 @@
 }
 
 .content {
-  padding: 10px;
   overflow: hidden;
   &-wrap {
     background-color: #fff;
