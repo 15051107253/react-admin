@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Menu } from 'antd'
-import { UserOutlined } from '@ant-design/icons'
+import { MyIcon } from '@/components'
 import menu from '../menu'
 import { arrayToTree } from '@/utils'
 
@@ -10,7 +10,7 @@ const menuMap = (menus) => {
   return menus.map((item) => {
     if (item.children && item.children.length) {
       return (
-        <SubMenu key={item.id} icon={<UserOutlined />} title={item.title}>
+        <SubMenu key={item.id} icon={item.icon ? <MyIcon type={item.icon} /> : ''} title={item.title}>
           {menuMap(item.children)}
         </SubMenu>
       )
