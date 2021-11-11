@@ -1,6 +1,5 @@
 import React from 'react'
 import { Layout } from 'antd'
-import { HashRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import routes from '@/router'
 import SubMenu from './components/sub-menu'
@@ -25,9 +24,7 @@ const AppLayout = () => {
           <SubMenu />
         </Sider>
         <Layout className={style['content']}>
-          <Content className={style['content-wrap']}>
-            <HashRouter>{renderRoutes(routes)}</HashRouter>
-          </Content>
+          <Content className={style['content-wrap']}>{renderRoutes(routes)}</Content>
         </Layout>
       </Layout>
     </Layout>
