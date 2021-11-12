@@ -50,6 +50,26 @@ export function getParentsId(arr, id) {
   return parents
 }
 
+// 根据路径寻找菜单Id
+export function getPathForId(arr, path) {
+  for (const item of arr) {
+    if (item.path === path) {
+      return item.id
+    }
+  }
+  return undefined
+}
+
+// 根据菜单Id寻找路径
+export function getIdForPath(arr, id) {
+  for (const item of arr) {
+    if (item.id === id) {
+      return item.path
+    }
+  }
+  return undefined
+}
+
 // 找出当前节点所有的子节点
 export function getChildsId(arr, id) {
   const currIds = []

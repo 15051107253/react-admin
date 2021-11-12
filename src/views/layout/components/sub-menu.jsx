@@ -32,8 +32,8 @@ const SubMenuWrap = () => {
   const handleMenuItem = (item) => {
     console.log(item)
     const { id, path } = item
-    const parentIds = getParentsId(menuList, id)
-    setOpenKeys(parentIds)
+    // const parentIds = getParentsId(menuList, id)
+    // setOpenKeys(parentIds)
     setSelectedKeys([id])
     window.sessionStorage.currentMenuId = id
     history.push(path)

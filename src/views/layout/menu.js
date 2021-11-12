@@ -53,13 +53,13 @@ const menu = [
     id: '10101',
     parentId: '10100',
     title: '用户管理',
-    path: '',
+    path: '/system/userManage',
   },
   {
     id: '10102',
     parentId: '10100',
     title: '角色管理',
-    path: '',
+    path: '/system/roleManage',
   },
   {
     id: '10103',
