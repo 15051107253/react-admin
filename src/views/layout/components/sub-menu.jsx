@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Menu } from 'antd'
+import { Menu, message } from 'antd'
 import { MyIcon } from '@/components'
 import { useHistory } from 'react-router-dom'
 import menuList from '../menu'
@@ -32,6 +32,10 @@ const SubMenuWrap = () => {
   const handleMenuItem = (item) => {
     console.log(item)
     const { id, path } = item
+    if (!path) {
+      message.error('该页面未配置路由，无法跳转！')
+      return false
+    }
     // const parentIds = getParentsId(menuList, id)
     // setOpenKeys(parentIds)
     setSelectedKeys([id])

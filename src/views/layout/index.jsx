@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Layout } from 'antd'
+import { Layout, message } from 'antd'
 import { renderRoutes } from 'react-router-config'
 import { useLocation, Redirect } from 'react-router-dom'
 import routes from '@/router'
@@ -23,6 +23,7 @@ const AppLayout = () => {
   }
 
   if (appLoadingFinish) {
+    console.log(location.pathname)
     if (location.pathname === '/') {
       if (window.sessionStorage.currentMenuId) {
         const path = getIdForPath(menuList, window.sessionStorage.currentMenuId)

@@ -1,14 +1,12 @@
-import { useReducer } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
+import { RecoilRoot } from 'recoil'
 import AppLayout from './views/layout'
 import Login from './views/login'
 import Wrapper from './views/wrapper'
-import { GlobalContext } from './store/context'
-import { globalStore } from './store'
 import './App.less'
 function App() {
   return (
-    <GlobalContext.Provider value={globalStore}>
+    <RecoilRoot>
       <div id='app'>
         <Switch>
           <Route exact path='/login' component={Login} />
@@ -16,7 +14,7 @@ function App() {
           <Route path='/' component={AppLayout} />
         </Switch>
       </div>
-    </GlobalContext.Provider>
+    </RecoilRoot>
   )
 }
 export default App
