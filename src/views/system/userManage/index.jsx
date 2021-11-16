@@ -1,7 +1,32 @@
 import React from 'react'
+import { Input } from 'antd'
+import { QueryWrapper, FormItem, PageContent } from '@/components'
 
 const UserManage = () => {
-  return <div>用户管理</div>
+  return (
+    <PageContent>
+      <QueryWrapper>
+        <FormItem label='用户姓名'>
+          <Input />
+        </FormItem>
+        <FormItem label='岗位角色'>
+          <Input />
+        </FormItem>
+        <FormItem label='岗位角色'>
+          <Input />
+        </FormItem>
+        <FormItem label='岗位角色'>
+          <Input />
+        </FormItem>
+        <FormItem label='岗位角色'>
+          <Input />
+        </FormItem>
+        <FormItem label='岗位角色'>
+          <Input />
+        </FormItem>
+      </QueryWrapper>
+    </PageContent>
+  )
 }
 
 export default UserManage

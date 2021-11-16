@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Menu, message } from 'antd'
 import { MyIcon } from '@/components'
 import { useHistory } from 'react-router-dom'
-import menuList from '../menu'
+import menuList from '../../menu'
+import { useAppTabs, useOpenKeys, useSelectedKeys } from '@/store'
 import { arrayToTree, getParentsId, getChildsId } from '@/utils'
 
 const { SubMenu } = Menu
@@ -26,9 +27,13 @@ const menuMap = (menus, handleMenuItem) => {
 }
 
 const SubMenuWrap = () => {
+  console.log(111)
   const history = useHistory()
-  const [openKeys, setOpenKeys] = useState(getParentsId(menuList, window.sessionStorage.currentMenuId))
-  const [selectedKeys, setSelectedKeys] = useState([window.sessionStorage.currentMenuId])
+  // const [openKeys, setOpenKeys] = useState(getParentsId(menuList, window.sessionStorage.currentMenuId))
+  const [openKeys, setOpenKeys] = useOpenKeys()
+  // const [selectedKeys, setSelectedKeys] = useState([window.sessionStorage.currentMenuId])
+  const [selectedKeys, setSelectedKeys] = useSelectedKeys()
+  const { setAppTabs } = useAppTabs()
   const handleMenuItem = (item) => {
     console.log(item)
     const { id, path } = item
@@ -36,21 +41,19 @@ const SubMenuWrap = () => {
       message.error('该页面未配置路由，无法跳转！')
       return false
     }
-    // const parentIds = getParentsId(menuList, id)
-    // setOpenKeys(parentIds)
+    // 把点击的菜单子项加入全局tabs中
+    setAppTabs(item)
     setSelectedKeys([id])
     window.sessionStorage.currentMenuId = id
     history.push(path)
   }
   const handleOpenChange = (item) => {
-    // console.log(item, openKeys)
     if (item.length > openKeys.length) {
       // 有菜单打开
       let subId = item.pop() // 当前打开的菜单
       const selectKeysParentIds = getParentsId(menuList, [...selectedKeys]) // 找出当前选中的菜单子项所有的父级
       if (selectKeysParentIds.includes(subId)) {
         // 如果当前选中的菜单子项的父级中
-        // console.log(selectKeysParentIds)
         setOpenKeys([...selectKeysParentIds])
       } else {
         setOpenKeys([...openKeys, subId])
@@ -65,7 +68,6 @@ const SubMenuWrap = () => {
         }
       }
       let childs = [subId, ...getChildsId(menuList, subId)] // 找到当前节点及其所有子节点
-      // console.log(childs)
       let closeKeys = []
       for (const key of openKeys) {
         if (!childs.includes(key)) {
@@ -75,9 +77,17 @@ const SubMenuWrap = () => {
       setOpenKeys(closeKeys)
     }
   }
+
   useEffect(() => {
-    console.log()
+    setOpenKeys(getParentsId(menuList, window.sessionStorage.currentMenuId))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    setSelectedKeys([window.sessionStorage.currentMenuId])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.sessionStorage.currentMenuId])
+
   return (
     <Menu
       mode='inline'

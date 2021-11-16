@@ -10,37 +10,8 @@ const menu = [
     id: '10001',
     parentId: '10000',
     title: '首页',
+    tabDisabled: true, // 是否能tab栏中删除该标签
     path: '/dashboard/home',
-  },
-  {
-    id: '10002',
-    parentId: '10000',
-    title: '二级菜单',
-    path: '',
-  },
-  {
-    id: '10003',
-    parentId: '10002',
-    title: '三级菜单',
-    path: '',
-  },
-  {
-    id: '10005',
-    parentId: '10002',
-    title: '三级菜单2',
-    path: '',
-  },
-  {
-    id: '10004',
-    parentId: '10003',
-    title: '四级菜单',
-    path: '',
-  },
-  {
-    id: '10006',
-    parentId: '10005',
-    title: '四级菜单2',
-    path: '',
   },
   {
     id: '10100',

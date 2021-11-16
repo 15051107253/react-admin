@@ -1,3 +1,4 @@
+@import '~antd/dist/antd.less';
 .layout {
   height: 100vh;
 }
@@ -26,8 +27,20 @@
   box-shadow: 5px 0 5px -5px #ddd;
   overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
+  padding-bottom: 40px;
   scrollbar-width: none; /* firefox */
   -ms-overflow-style: none; /* IE 10+ */
+  &-bottom {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #eee;
+  }
 }
 
 .menu-wrap::-webkit-scrollbar {
@@ -38,9 +51,5 @@
   overflow: hidden;
   &-wrap {
     background-color: #fff;
-  }
-  .tabs {
-    height: 40px;
-    background-color: #ddd;
   }
 }

@@ -1,0 +1,25 @@
+.tabs {
+  height: 40px;
+  display: flex;
+  user-select: none;
+  justify-content: flex-start;
+  background-color: #f6f9fc;
+  .tab-item {
+    height: 40px;
+    text-align: center;
+    padding: 0 15px;
+    min-width: 70px;
+    line-height: 40px;
+    font-size: 12px;
+    cursor: pointer;
+    &-close {
+      margin-left: 10px;
+    }
+  }
+  .tab-item:hover {
+    color: @primary-color;
+  }
+  .tab-item-active {
+    background-color: #fff;
+  }
+}

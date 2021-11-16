@@ -25,7 +25,13 @@ export function arrayToTree(arrs) {
 }
 
 // 找出当前节点的所有父节点
-export function getParentsId(arr, id) {
+/**
+ * @param {Array} arr 菜单列表
+ * @param {*} id  当前id
+ * @param {Boolean} showInfo 是否返回全部信息，为 false 只返回 Id
+ * @returns
+ */
+export function getParentsId(arr, id, showInfo = false) {
   if (!id) {
     return []
   }
@@ -39,7 +45,7 @@ export function getParentsId(arr, id) {
   }
   let pItem = { ...currItem }
   while (pItem.parentId) {
-    parents.unshift(pItem.parentId)
+    parents.unshift(showInfo ? { ...pItem } : pItem.parentId)
     for (const item of arr) {
       if (item.id === pItem.parentId) {
         pItem = { ...item }
@@ -47,14 +53,17 @@ export function getParentsId(arr, id) {
       }
     }
   }
-  return parents
+  return showInfo ? [{ ...pItem }, ...parents] : parents
 }
 
 // 根据路径寻找菜单Id
 export function getPathForId(arr, path) {
   for (const item of arr) {
     if (item.path === path) {
-      return item.id
+      return {
+        id: item.id,
+        menuItem: item,
+      }
     }
   }
   return undefined
@@ -64,7 +73,10 @@ export function getPathForId(arr, path) {
 export function getIdForPath(arr, id) {
   for (const item of arr) {
     if (item.id === id) {
-      return item.path
+      return {
+        path: item.path,
+        menuItem: item,
+      }
     }
   }
   return undefined

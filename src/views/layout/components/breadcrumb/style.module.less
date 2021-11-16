@@ -1,0 +1,20 @@
+.breadcrumb {
+  height: 40px;
+  background-color: #f6f9fc;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  &-item {
+    line-height: 40px;
+    font-size: 14px;
+    height: 40px;
+    &:not(:last-child) {
+      color: #999;
+    }
+    &:not(:last-child)::after {
+      content: '/';
+      padding: 0 10px;
+    }
+  }
+}

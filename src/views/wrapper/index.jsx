@@ -1,4 +1,4 @@
-import DashboardHome from '@/views/dashboard/home'
+// import DashboardHome from '@/views/dashboard/home'
 
 // const menuMap = {
 //   '/dashboard/home': DashboardHome,
