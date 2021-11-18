@@ -1,17 +1,22 @@
 .tabs {
   height: 40px;
+  margin-top: 5px;
   display: flex;
   user-select: none;
   justify-content: flex-start;
-  background-color: #fff;
+  align-items: center;
+  background-color: #f0f2f5;
+  border-bottom: 5px solid #fff;
   .tab-item {
     height: 40px;
+    border-radius: 10px 10px 0 0;
     text-align: center;
     padding: 0 15px;
     min-width: 70px;
     line-height: 40px;
     font-size: 12px;
     cursor: pointer;
+    border: 1px solid transparent;
     &-close {
       margin-left: 10px;
       svg {
@@ -28,7 +33,7 @@
     color: @primary-color;
   }
   .tab-item-active {
-    background-color: @primary-color;
-    color: #fff;
+    background-color: #fff;
+    color: @primary-color;
   }
 }
