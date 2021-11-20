@@ -1,4 +1,59 @@
-.content {
-  width: 800px;
-  margin: 0 auto;
+.login-container {
+  height: 100%;
+  background-color: #eee;
+  position: relative;
+  .login-wrapper {
+    position: absolute;
+    top: calc(50% - 250px);
+    right: 100px;
+    padding-top: 40px;
+    width: 400px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: @primary-color;
+  text-align: center;
+}
+
+.login-item {
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.input-wrap {
+  display: flex;
+  border-bottom: 2px solid @primary-color;
+  align-items: center;
+}
+
+.login-label {
+  width: 50px;
+  font-size: 18px;
+  color: @primary-color;
+}
+
+.login-input {
+  flex: 1;
+  height: 50px;
+  width: 100%;
+  padding: 0 10px;
+  border: none;
+  color: @primary-color;
+  font-size: 18px;
+}
+
+.login-input:focus {
+  box-shadow: none !important;
+}
+
+.login-input:-webkit-autofill,
+.login-input input[type='password']:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #fff inset;
+  -webkit-text-fill-color: @primary-color;
 }
