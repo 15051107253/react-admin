@@ -3,6 +3,7 @@ import { Layout } from 'antd'
 import { renderRoutes } from 'react-router-config'
 import { useLocation, useHistory } from 'react-router-dom'
 import routes from '@/router'
+import { Watermark } from '@/components'
 import SubMenu from './components/sub-menu'
 import Tab from './components/tab'
 import Breadcrumb from './components/breadcrumb'
@@ -64,6 +65,7 @@ const AppLayout = () => {
             <Content className={style['content-wrap']}>{renderRoutes(routes)}</Content>
           </Layout>
         </Layout>
+        <Watermark />
       </Layout>
     )
   } else {
